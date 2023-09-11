@@ -1,16 +1,36 @@
-# This is a sample Python script.
+class Dog():
+    velicina_copora = 0
+    def __init__(self, name):
+        self.name = name
+        self.legs = 4
+        Dog.velicina_copora += 1
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    @classmethod
+    def print_copor(cls):
+        print(cls.velicina_copora)
+    def say(self):
+        print("bark")
+
+    @staticmethod
+    def veterinar(pas):
+        print("operacija")
+        pas.say()
+        pas.legs = 3
+
+class Robot:
+    def __init__(self, sn):
+        self.serial = sn
+
+    def say(self):
+        print(f"robot kaze {self.serial}")
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+pas = Dog("Pujdo")
+pas.say()
+Dog.print_copor()
+print(pas.__dict__)
+print(pas.__class__.__dict__)
+robot = Robot("123")
+lista = [pas, robot]
+for i in lista:
+    i.say()
