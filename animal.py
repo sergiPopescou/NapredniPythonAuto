@@ -155,10 +155,12 @@ class WTFIsThis(Elephant, Penguin):  # multiple inheritance
     def __init__(self, name):
         super().__init__(name)
 
-# problem sa inicijalizacijom WTF
-wtf = WTFIsThis("ChillyEllie")
-print(wtf)
-print(WTFIsThis.mro())
-wtf.eat()
-wtf.fly()
+
+if __name__ == "__main__":
+    # problem sa inicijalizacijom WTF
+    wtf = WTFIsThis("ChillyEllie")
+    print(wtf)
+    print(WTFIsThis.mro())
+    wtf.eat()
+    wtf.fly()
 

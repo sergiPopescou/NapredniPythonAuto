@@ -39,9 +39,10 @@ class Animal:
         return self._species_
 
 
-an = Animal("protozoe")
-print(an)
-an.say("blah")
-an.eat("nothing")
-an.move()
-print(Animal.mro())
+if __name__ == "__main__":
+    an = Animal("protozoe")
+    print(an)
+    an.say("blah")
+    an.eat("nothing")
+    an.move()
+    print(Animal.mro())
