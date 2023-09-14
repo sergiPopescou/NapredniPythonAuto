@@ -31,7 +31,7 @@ def projekat_sa_issueima():
     # kod za setup
     p = Projekat("naziv")
     p.addIssue(Issue("1", "low"))
-    p.addIssue(Issue("2", "medium"))
+    p.addIssue(Issue("2", "med"))
     p.addIssue(Issue("3", "high"))
     yield p
     # kod za teardown
@@ -51,7 +51,7 @@ def projekat_sa_issueima_i_osobama():
     p.addIssue(i1)
     t = TehnickaOsoba("ime", "prezime", "junior")
     t.addPosao(i1)
-    i2 = Issue("2", "medium")
+    i2 = Issue("2", "med")
     p.addIssue(i2)
     t = TehnickaOsoba("ime1", "prezime2", "medior")
     t.addPosao(i2)
@@ -127,7 +127,7 @@ def test_pretraga_po_nivoima(projekat_sa_issueima):
     issues = list(p.filterIssuesByNivo("low"))
     assert len(issues) == 1
     assert issues[0].naziv == "1"
-    issues = list(p.filterIssuesByNivo("medium"))
+    issues = list(p.filterIssuesByNivo("med"))
     assert len(issues) == 1
     assert issues[0].naziv == "2"
     issues = list(p.filterIssuesByNivo("high"))

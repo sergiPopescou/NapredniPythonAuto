@@ -1,0 +1,25 @@
+issues:
+  -
+    naziv: issue1
+    nivo: LOW
+  -
+    naziv: issue2
+    nivo: MED
+  -
+    naziv: issue3
+    nivo: HIGH
+  -
+    naziv: issue4
+    nivo: HIGH
+  -
+    naziv: issue5
+    nivo: LOW
+  -
+    naziv: issue6
+    nivo: MED
+  -
+    naziv: issue7
+    nivo: MED
+  -
+    naziv: issue8
+    nivo: MED

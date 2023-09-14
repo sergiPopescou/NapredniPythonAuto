@@ -1,3 +1,4 @@
+from enum import Enum
 from tdd.modules.osoba import Osoba, OsobaTypeError
 
 
@@ -24,6 +25,33 @@ class StatusWorkflowError(ValueError):
     def __init__(self, message):
         super().__init__(message)
 
+class Nivo(Enum):
+    LOW = 0
+    MED = 1
+    HIGH = 2
+
+    def __str__(self):
+        return str(self.name).lower()
+
+    @staticmethod
+    def createNivo(string_):
+        if string_.lower() == "low":
+            return Nivo.LOW
+        elif string_.lower() == "med":
+            return Nivo.MED
+        elif string_.lower() == "high":
+            return Nivo.HIGH
+        return None
+
+    @staticmethod
+    def toInt(nivo):
+        if nivo == Nivo.LOW:
+            return 0
+        elif nivo == Nivo.MED:
+            return 1
+        elif nivo == Nivo.HIGH:
+            return 2
+
 
 class Issue:
     """
@@ -36,7 +64,7 @@ class Issue:
             status -
     """
 
-    _nivoi = ("low", "medium", "high")
+    _nivoi = ("low", "med", "high")
     """klasna varijabla mogucih nivoa"""
 
     _statusi = ("Open", "InProgress", "Closed")
@@ -72,7 +100,7 @@ class Issue:
         # if isinstance(nivo, Nivo):
         # sada smo nezavisni od toga kako ce izgledati bilo kakva provjera.
         # ukoliko se nešto promijeni, samo ce se dirati ovaj metod.
-        return nivo in Issue._nivoi
+        return str(nivo) in Issue._nivoi
 
     def checkNivo(self, target_):
         """

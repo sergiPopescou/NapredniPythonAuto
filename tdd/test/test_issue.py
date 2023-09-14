@@ -13,11 +13,11 @@ def test_naziv():
         Issue("naziv")
     with pytest.raises(TypeError):
         Issue("q", "3", "fff")
-    p = Issue("naziv", "medium")
+    p = Issue("naziv", "med")
     assert hasattr(p, "naziv")
     assert hasattr(p, "nivo")
     assert p.naziv == "naziv"
-    assert p.nivo == "medium"
+    assert p.nivo == "med"
 
 
 def test_nivo():
@@ -27,7 +27,7 @@ def test_nivo():
     """
     with pytest.raises(ValueError):
         Issue("neziv", "low1")
-    for n in ("low", "medium", "high"):
+    for n in ("low", "med", "high"):
         i = Issue("neziv", n)
         assert i.nivo == n
 
